@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item *ngFor="let item of items | async">
+            <ion-row clear>
+                <ion-col>
+                    <h2>
+                        {{item.title}}
+
+                    </h2>
+                    <ion-note item-right>10-Jan-2018</ion-note>
+                </ion-col>
+            </ion-row>
+            <p item-right>
+                <ion-icon clear item-right name="play" (click)="audioplay(item.URL)"></ion-icon>
+                <ion-icon clear item-right name="md-cloud-download" (click)="downloadFile(item.URL)"></ion-icon>
+            </p>
+
+        </ion-item>
+
+    </ion-list>
+
+
+</ion-content>
